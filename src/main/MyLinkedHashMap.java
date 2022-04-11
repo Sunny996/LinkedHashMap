@@ -37,10 +37,17 @@ public class MyLinkedHashMap<K, V> {
         MyMapNode<K, V> myMapNode = (MyMapNode<K, V>) myLinkedList.search(key);
         if (myMapNode == null) {
             myMapNode = new MyMapNode<>(key, value);
-            myLinkedList.appendNode(myMapNode);
+            myLinkedList.addNode(myMapNode);
         } else {
             myMapNode.setValue(value);
         }
+    }
+
+    public void remove(K key) {
+        int index = this.getBucketIndex(key);
+        MyLinkedList<K> myLinkedList = this.myBucketArray.get(index);
+        MyMapNode<K, V> myMapNode = (MyMapNode<K, V>) myLinkedList.search(key);
+        myLinkedList.popElement(myMapNode);
     }
 
     @Override

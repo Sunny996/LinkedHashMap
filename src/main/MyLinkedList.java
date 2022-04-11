@@ -44,9 +44,9 @@ public class MyLinkedList<K> {
         return tempNode;
     }
 
-    public INode popElement(INode<K> myNode) {
-        if (head == null)
-            return null;
+    public void popElement(INode myNode) {
+//        if (head == null)
+//            return null;
         if (tail == head && head == myNode) {
             head = null;
             tail = null;
@@ -65,7 +65,7 @@ public class MyLinkedList<K> {
                 tail = tempNode;
             tempNode.setNext(tempNode.getNext().getNext());
         }
-        return myNode;
+//        return myNode;
     }
 
     public int size() {
@@ -126,8 +126,8 @@ public class MyLinkedList<K> {
 
     @Override
     public String toString() {
-        return "MyLinkedListNodes{" +
-                "head=" + head +
+        return "MyLinkedListNodes{"
+                + head +
                 '}';
     }
 }
